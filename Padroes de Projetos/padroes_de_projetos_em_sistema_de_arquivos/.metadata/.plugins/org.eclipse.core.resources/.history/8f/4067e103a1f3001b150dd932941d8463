@@ -1,0 +1,6 @@
+package br.com.douglaskelczeski.file_explorer.entidades;
+
+public class VideoPrivado extends Video {
+	private double senha;
+
+}

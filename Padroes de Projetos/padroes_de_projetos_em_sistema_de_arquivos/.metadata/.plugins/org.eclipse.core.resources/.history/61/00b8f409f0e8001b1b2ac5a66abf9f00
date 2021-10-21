@@ -1,0 +1,15 @@
+
+public class Audio {
+	String nome;
+	String formato;
+	String formatosDisponiveis;
+	double tamanho;
+	
+	String getOutroFormatoAudio() {
+		return  formatosDisponiveis = ".mp3, .mp4, .wma";
+	}
+	
+	String getFormatarAudio() {
+		return  formato = formatosDisponiveis;
+	}
+}

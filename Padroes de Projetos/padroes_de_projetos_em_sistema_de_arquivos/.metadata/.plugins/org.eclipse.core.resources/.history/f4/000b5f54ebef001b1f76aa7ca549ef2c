@@ -1,0 +1,46 @@
+
+public class Dispositivo {
+	private String nome;
+	private double capacidade;                                                    // atributos da classe
+	private double capacidadeUsada;
+
+	public Dispositivo(String nome, double capacidade, double capacidadeUsada) {
+		super();
+		this.nome = nome;                                                         // metodo construtor
+		this.capacidade = capacidade;
+		this.capacidadeUsada = capacidadeUsada;
+	}
+	
+	
+
+// metodos get e set
+
+	public double getCapacidadeRestante() {
+		return capacidade - capacidadeUsada;                                      // Comportamento da classe
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getCapacidade() {
+		return capacidade;
+	}
+
+	public void setCapacidade(double capacidade) {
+		this.capacidade = capacidade;
+	}
+
+	public double getCapacidadeUsada() {
+		return capacidadeUsada;
+	}
+
+	public void setCapacidadeUsada(double capacidadeUsada) {
+		this.capacidadeUsada = capacidadeUsada;
+	}
+
+}

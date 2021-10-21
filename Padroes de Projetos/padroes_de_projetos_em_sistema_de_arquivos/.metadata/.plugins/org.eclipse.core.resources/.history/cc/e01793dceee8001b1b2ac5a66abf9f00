@@ -1,0 +1,10 @@
+
+public class Audio {
+	String nome;
+	String formato;
+	double tamanho;
+	
+	String getOutroFormato() {
+		return  formato = ".mp3";
+	}
+}

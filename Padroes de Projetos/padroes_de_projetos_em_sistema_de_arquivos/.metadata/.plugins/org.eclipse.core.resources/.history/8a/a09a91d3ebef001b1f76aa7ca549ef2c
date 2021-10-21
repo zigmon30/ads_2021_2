@@ -1,0 +1,17 @@
+
+public class Audio {
+	String nome;
+	String formato;
+	double tamanho;
+	
+	public Audio(String nome, String formato, double tamanho) {
+		super();
+		this.nome = nome;
+		this.formato = formato;
+		this.tamanho = tamanho;
+	}
+
+	String getFormatarAudio() {
+		return  formato = ".mp3";
+	}
+}

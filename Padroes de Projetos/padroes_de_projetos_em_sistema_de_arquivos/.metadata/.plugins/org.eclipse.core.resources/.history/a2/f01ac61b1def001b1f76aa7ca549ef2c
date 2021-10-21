@@ -1,0 +1,11 @@
+
+public class Dispositivo {
+	private String nome;
+	private double capacidade;                     // atributos da classe
+	private double capacidadeUsada;
+	
+	double getCapacidadeRestante() {
+		return capacidade - capacidadeUsada;               //Comportamento da classe
+	}
+
+}

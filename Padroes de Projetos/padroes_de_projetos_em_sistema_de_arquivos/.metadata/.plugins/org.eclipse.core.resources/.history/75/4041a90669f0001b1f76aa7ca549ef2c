@@ -1,0 +1,326 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+	static boolean imprime = true; // ################################################
+	static ArrayList<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
+	static ArrayList<Audio> audios = new ArrayList<Audio>(); // LISTAS DINAMICAS COM ARRAYLIST
+	static ArrayList<Documento> textos = new ArrayList<Documento>();
+	static ArrayList<Imagem> imagens = new ArrayList<Imagem>();
+	static ArrayList<Video> videos = new ArrayList<Video>(); // ################################################
+
+	public static void main(String[] args) {
+		Scanner ler = new Scanner(System.in);
+		ler.useDelimiter("\r?\n");
+
+		while (true) {
+
+			menu();
+
+			int opecao = ler.nextInt();
+
+			if (opecao == 0) {
+				break;
+			}
+
+			if (opecao == 1) {
+				while (true) {
+					menuDispositivo();
+
+					int opecaoDis = ler.nextInt();
+
+					if (opecaoDis == 0) {
+						break;
+					}
+
+					if (opecaoDis == 1) {
+
+						println("Nome do dispositivo de armazenamento: ");
+						String nome = ler.next();
+
+						println("Capacidade do dispositivo de armazenamento: ");
+						double capacidade = ler.nextDouble();
+						println("Capacidade utilizada do dispositivo de armazenamento: ");
+						double capacidadeUsada = ler.nextDouble();
+						Dispositivo dis = new Dispositivo(nome, capacidade, capacidadeUsada);
+
+						dispositivos.add(dis);
+
+					}
+
+					if (opecaoDis == 2) {
+						for (int indexDis = 0; indexDis < dispositivos.size(); indexDis++) {
+							println("Dispositivo[" + indexDis + "]: " + dispositivos.get(indexDis).getNome()
+									+ " Capacidade...=> " + dispositivos.get(indexDis).getCapacidade()
+									+ " Memoria usada...=> " + +dispositivos.get(indexDis).getCapacidadeUsada()
+									+ " Capacidade restante...=>" + dispositivos.get(indexDis).getCapacidadeRestante()
+									+ "\n");
+							println("------------------------------------------------------------------");
+						}
+					}
+
+					if (opecaoDis == 3) {
+						println("Para alterar nome  do dispositivo digite o seu id ");
+						int indexDis = ler.nextInt();
+
+						if (indexDis < dispositivos.size()) {
+							Dispositivo dis = dispositivos.get(indexDis);
+							println("NDigite um novo nome para: " + dis.getNome() + "?");
+							String nome = ler.next();
+							dis.setNome(nome);
+							println("Nome alterado com sucesso");
+						} else {
+							println("Indice não encontrado");
+						}
+
+					}
+
+					if (opecaoDis == 4) {
+						println("Digite o id do dispositivo para ser removido");
+						int indexDis = ler.nextInt();
+
+						if (indexDis < dispositivos.size()) {
+							dispositivos.remove(indexDis);
+							println("Dispositivo  removido com sucesso");
+						} else {
+							println("Indice não encontrado");
+						}
+
+					}
+
+				}
+
+			}
+
+			if (opecao == 2) {
+				while (true) {
+					menuAudio();
+
+					int opecaoDis = ler.nextInt();
+
+					if (opecaoDis == 0) {
+						break;
+					}
+
+					if (opecaoDis == 1) {
+						Audio aud = new Audio();
+						println("Nome do Arquivo de Audio: ");
+						aud.nome = ler.next();
+
+						audios.add(aud);
+
+						println("Formato: ");
+						aud.formato = ler.next();
+						println("Tamanho Arquivo: ");
+						aud.tamanho = ler.nextDouble();
+						println("Arquivo de Audio convertido para formato .mp3 disponivel pelo gerenciador de arquivo : ");
+
+					}
+
+					if (opecaoDis == 2) {
+						for (int indexDis = 0; indexDis < audios.size(); indexDis++) {
+							println("Audio[" + indexDis + "]: " + audios.get(indexDis).nome + " Formato...=> "
+									+ audios.get(indexDis).getFormatarAudio() + " Tamanho do arquivo...=> "
+									+ +audios.get(indexDis).tamanho + "\n");
+							println("------------------------------------------------------------------");
+						}
+					}
+
+				}
+
+			}
+
+			if (opecao == 3) {
+				while (true) {
+					menuDocumentoDeTexto();
+
+					int opecaoDis = ler.nextInt();
+
+					if (opecaoDis == 0) {
+						break;
+					}
+
+					if (opecaoDis == 1) {
+						Documento doc = new Documento();
+						println("Nome do Arquivo de Texto: ");
+						doc.nome = ler.next();
+
+						textos.add(doc);
+
+						println("Formato: ");
+						doc.formato = ler.next();
+						println("Tamanho Arquivo: ");
+						doc.tamanho = ler.nextDouble();
+						println("Arquivo de texto convertido para formato .txt disponivel pelo gerenciador de arquivo : ");
+
+					}
+
+					if (opecaoDis == 2) {
+						for (int indexDis = 0; indexDis < textos.size(); indexDis++) {
+							println("Arquivo[" + indexDis + "]: " + textos.get(indexDis).nome + " Formato...=> "
+									+ textos.get(indexDis).getFormatarDocumento() + " Tamanho do arquivo...=> "
+									+ +textos.get(indexDis).tamanho + "\n");
+							println("------------------------------------------------------------------");
+						}
+					}
+
+				}
+
+			}
+			if (opecao == 4) {
+				while (true) {
+					menuImagem();
+
+					int opecaoDis = ler.nextInt();
+
+					if (opecaoDis == 0) {
+						break;
+					}
+
+					if (opecaoDis == 1) {
+						Imagem img = new Imagem();
+						println("Nome do Arquivo de Imagem: ");
+						img.nome = ler.next();
+
+						imagens.add(img);
+
+						println("Formato: ");
+						img.formato = ler.next();
+						println("Tamanho Arquivo: ");
+						img.tamanho = ler.nextDouble();
+						println("Arquivo de imagem convertido para formato .jpg disponivel pelo gerenciador de arquivo : ");
+
+					}
+
+					if (opecaoDis == 2) {
+						for (int indexDis = 0; indexDis < imagens.size(); indexDis++) {
+							println("Imagem[" + indexDis + "]: " + imagens.get(indexDis).nome + " Formato...=> "
+									+ imagens.get(indexDis).getFormatarImagem() + " Tamanho do arquivo...=> "
+									+ +imagens.get(indexDis).tamanho + "\n");
+							println("------------------------------------------------------------------");
+						}
+					}
+
+				}
+
+			}
+			if (opecao == 5) {
+				while (true) {
+					menuVideo();
+
+					int opecaoDis = ler.nextInt();
+
+					if (opecaoDis == 0) {
+						break;
+					}
+
+					if (opecaoDis == 1) {
+						Video vid = new Video();
+						println("Nome do Arquivo de Video: ");
+						vid.nome = ler.next();
+
+						videos.add(vid);
+
+						println("Formato: ");
+						vid.formato = ler.next();
+						println("Tamanho Arquivo: ");
+						vid.tamanho = ler.nextDouble();
+						println("Arquivo de texto convertido para formato .txt disponivel pelo gerenciador de arquivo : ");
+
+					}
+
+					if (opecaoDis == 2) {
+						for (int indexDis = 0; indexDis < videos.size(); indexDis++) {
+							println("Video[" + indexDis + "]: " + videos.get(indexDis).nome + " Formato...=> "
+									+ videos.get(indexDis).getFormatarVideo() + " Tamanho do arquivo...=> "
+									+ +videos.get(indexDis).tamanho + "\n");
+							println("------------------------------------------------------------------");
+						}
+					}
+
+				}
+
+			}
+		}
+		println("Você fechou o File Explorer \nAté a próxima ;)");
+
+	}
+
+	static void menu() {
+		println("");
+		println("-------------------------------------------");
+		println("Gerenciador de Arquivos File Explorer     -");
+		println("                                          -");
+		println("(0) para sair                             -");
+		println("(1) para dispositivos de Armazenamento    -");
+		println("(2) para Arquivos de Audio                -");
+		println("(3) para Documentos de Texto              -");
+		println("(4) para Arquivos de Imagem               -");
+		println("(5) para Arquivos de Video                -");
+		println("Digite sua opção:                         -");
+		println("-------------------------------------------");
+
+	}
+
+	static void menuDispositivo() {
+		println("");
+		println("---------------------");
+		println("(0) para Voltar ao Menu Principal");
+		println("(1) para inserir um dispositivo de armazenamento");
+		println("(2) para listar os dispositivos atualmente no sistema");
+		println("(3) para editar nome de disposito");
+		println("(4) para excluir dispositivos atualmente no sistema");
+		println("Digite sua opção:");
+	}
+
+	static void menuAudio() {
+		println("");
+		println("---------------------");
+		println("(0) para Voltar ao Menu Principal");
+		println("(1) para inserir um aquivo de audio");
+		println("(2) para listar os arquivos de audio atualmente no sistema");
+		println("(3) para editar nome de audio");
+		println("(4) para excluir audio atualmente no sistema");
+		println("Digite sua opção:");
+	}
+
+	static void menuDocumentoDeTexto() {
+		println("");
+		println("---------------------");
+		println("(0) para Voltar ao Menu Principal");
+		println("(1) para inserir um documento");
+		println("(2) para listar os documentos atualmente no sistema");
+		println("(3) para editar nome de arquivo .txt");
+		println("(4) para excluir arquivo .txt atualmente no sistema");
+		println("Digite sua opção:");
+	}
+
+	static void menuImagem() {
+		println("");
+		println("---------------------");
+		println("(0) para Voltar ao Menu Principal");
+		println("(1) para inserir uma imagem");
+		println("(2) para listar as imagens atualmente no sistema");
+		println("(3) para editar nome da imagem");
+		println("(4) para excluir imagem atualmente no sistema");
+		println("Digite sua opção:");
+	}
+
+	static void menuVideo() {
+		println("");
+		println("---------------------");
+		println("(0) para Voltar ao Menu Principal");
+		println("(1) para inserir um novo video");
+		println("(2) para listar os videos atualmente no sistema");
+		println("(3) para editar nome do video");
+		println("(4) para excluir video atualmente no sistema");
+		println("Digite sua opção:");
+	}
+
+	static void println(String conteudo) {
+		if (imprime)
+			System.out.println(conteudo);
+
+	}
+
+}
