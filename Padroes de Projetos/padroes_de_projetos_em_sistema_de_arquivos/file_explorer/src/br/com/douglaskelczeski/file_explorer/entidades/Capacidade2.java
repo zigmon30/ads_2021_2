@@ -3,7 +3,7 @@ package br.com.douglaskelczeski.file_explorer.entidades;
 public class Capacidade2 implements TamanhoArmazenamento{
 	
 	public double escolherTamanho() {
-		return 1024;
+		return 4096;
 	}	
 
 }

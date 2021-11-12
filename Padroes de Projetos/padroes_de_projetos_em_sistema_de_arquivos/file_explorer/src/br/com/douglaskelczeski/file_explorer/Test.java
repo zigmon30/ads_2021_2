@@ -57,7 +57,7 @@ public class Test {
 						String nome = ler.next();
 
 						println("Qual o codigo da capacidade:\n"
-								+ "(1) ou (2) ");
+								+ "(1)  (2)  (3)");
 						int opcaoTipoDis = ler.nextInt();
 						TipoDispositivoCapacidade tipoDispositivo = TipoDispositivoCapacidade.values()[opcaoTipoDis - 1];
 						
