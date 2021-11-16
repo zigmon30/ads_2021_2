@@ -163,10 +163,14 @@ public class Principal2 {
 			System.out.println(conteudo);
 
 	}
+	
 	static void print(String conteudo) {
+
 		if (imprimeSemQuebra)
 			System.out.print(conteudo);
 
 	}
+	
+	
 
 }
