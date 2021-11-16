@@ -6,5 +6,6 @@ public class Imovel {
 	int area;
 	String localConstrucao;
 	int anoConstrução;
+	Construtor construtor;
 
 }
