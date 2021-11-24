@@ -162,9 +162,60 @@ public class Principal3 {
 		int indexCons = ler.nextInt();
 
 		Construtor cons = construtores[indexCons];
-		ler.nextLine();
-		print("Nome: ");
-		cons.nome = ler.nextLine();
+		
+		while (true) { // opções para alterar lista de imoveis
+
+			println("Que informação você quer editar \t Para cancelar operação digite: 0" + "\n1 - Nome" 
+					+ "\n2 - CPF" + "\n3 - Idade" + "\n4 - Nacionalidade");
+
+			int op = ler.nextInt();
+
+			if (op == 0) {
+				println("Operação cancelada!");
+				break;
+			}
+
+			if (op == 1) {
+				ler.nextLine();
+				println("Nome a ser alterado: " + construtores[indexCons].nome);
+				print("Alterar nome do Construtor para: ");
+				cons.nome = ler.nextLine();
+				break;
+			}
+
+			if (op == 2) {
+				println("Cpf a ser alterado: " + construtores[indexCons].cpf);
+				print("Alterar idade do Construtor para: ");
+				cons.cpf = ler.nextLong();
+				break;
+
+			}
+
+			if (op == 3) {
+				ler.nextLine();
+				println("Idade a ser alterado: " + construtores[indexCons].idade);
+				print("Alterar idade do Construtor para: ");
+				cons.idade = Integer.parseInt(ler.nextLine());
+				break;
+
+			}
+			if (op == 4) {
+				ler.nextLine();
+				println("Naturalidade a ser alterado: " + construtores[indexCons].naturalidade);
+				print("Alterar naturalidade do Construtor para: ");
+				cons.naturalidade = ler.nextLine();
+				break;
+
+			}
+
+			
+
+
+		}
+
+
+		
+		
 
 		println("\nConstrutor(a) numero: [" + indexCons + "] " + "\tAlterado para Nome: " + construtores[indexCons].nome
 				+ "\tcpf: " + construtores[indexCons].cpf + "\tIdade: " + construtores[indexCons].idade
