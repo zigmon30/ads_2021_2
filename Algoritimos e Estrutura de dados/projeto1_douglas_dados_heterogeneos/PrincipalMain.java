@@ -2,7 +2,7 @@ package projeto1_douglas_dados_heterogeneos;
 
 import java.util.Scanner;
 
-public class Principal3 {
+public class PrincipalMain {
 	static boolean imprime = true;
 	static boolean imprimeSemQuebra = true;
 	static int MAX_IMOVEIS = 999;
@@ -57,6 +57,11 @@ public class Principal3 {
 
 					}
 
+					if (opecaoImo == 4) {
+						numImoveis = excluirImovel(imoveis, numImoveis, ler);
+
+					}
+
 				}
 
 			}
@@ -84,6 +89,12 @@ public class Principal3 {
 					if (opecaoCon == 3) {
 
 						numConstrutores = editarConstrutor(construtores, numConstrutores, ler);
+
+					}
+
+					if (opecaoCon == 4) {
+
+						numConstrutores = excluirConstrutor(construtores, numConstrutores, ler);
 
 					}
 
@@ -116,6 +127,7 @@ public class Principal3 {
 		println("(1) para inserir um novo Imovel");
 		println("(2) para listar os Imoveis atualmente no sistema");
 		println("(3) para Editar os Imoveis atualmente no sistema");
+		println("(4) para Excluir algum Imovel atualmente no sistema");
 		println("Digite sua opção:");
 	}
 
@@ -126,6 +138,7 @@ public class Principal3 {
 		println("(1) para inserir um novo construtor");
 		println("(2) para listar os cosntrutores atualmente no sistema");
 		println("(3) para Editar os construtores atualmente no sistema");
+		println("(4) para Excluir um  construtor atualmente no sistema");
 		println("Digite sua opção:");
 	}
 
@@ -157,16 +170,16 @@ public class Principal3 {
 					"\nnumero: [" + indexCons + "] " + "\tNome do construtor(a) : " + construtores[indexCons].nome);
 		}
 
-		println("Para alterar nome  do Construtor(a) digite o seu numero ==> [?] ");
+		println("Para alterar dados de algum  Construtor(a) digite o seu numero ==> [?] ");
 
 		int indexCons = ler.nextInt();
 
 		Construtor cons = construtores[indexCons];
-		
+
 		while (true) { // opções para alterar lista de imoveis
 
-			println("Que informação você quer editar \t Para cancelar operação digite: 0" + "\n1 - Nome" 
-					+ "\n2 - CPF" + "\n3 - Idade" + "\n4 - Nacionalidade");
+			println("Que informação você quer editar \t Para cancelar operação digite: 0" + "\n1 - Nome" + "\n2 - CPF"
+					+ "\n3 - Idade" + "\n4 - Nacionalidade");
 
 			int op = ler.nextInt();
 
@@ -208,20 +221,37 @@ public class Principal3 {
 
 			}
 
-			
-
-
 		}
-
-
-		
-		
 
 		println("\nConstrutor(a) numero: [" + indexCons + "] " + "\tAlterado para Nome: " + construtores[indexCons].nome
 				+ "\tcpf: " + construtores[indexCons].cpf + "\tIdade: " + construtores[indexCons].idade
 				+ "\tNaturalidade: " + construtores[indexCons].naturalidade + "\n");
 
 		construtores[numConstrutores] = cons;
+
+		return numConstrutores;
+
+	}
+
+	public static int excluirConstrutor(Construtor construtores[], int numConstrutores, Scanner ler) {
+
+		for (int indexCons = 0; indexCons < numConstrutores; indexCons++) {
+			System.out.println(
+					"\nnumero: [" + indexCons + "] " + "\tNome do construtor(a) : " + construtores[indexCons].nome);
+		}
+
+		println("Para excluir algum  Construtor(a) digite o seu numero ==> [?] ");
+
+		int indexCons = ler.nextInt();
+
+		if (indexCons < 0 || indexCons >= numConstrutores) { // verifica se o user colocou um construtor listado
+			println("numero invalido, construtor não encontrado tente outro id!");
+			return numConstrutores;
+		}
+		for (int i = indexCons; i < numConstrutores - 1; i++) {
+			construtores[i] = construtores[i + 1];
+		}
+		numConstrutores--;
 
 		return numConstrutores;
 
@@ -297,9 +327,9 @@ public class Principal3 {
 
 		while (true) { // opções para alterar lista de imoveis
 
-			println("Que informação você quer editar \t Para cancelar operação digite: 0" + "\n1 - Nome" 
-					+ "\n2 - Tipo" + "\n3 - Area"
-					+ "\n4 - Local da Construção" + "\n5 - Ano Construção" + "\n6 - Construtor do Imovel");
+			println("Que informação você quer editar \t Para cancelar operação digite: 0" + "\n1 - Nome" + "\n2 - Tipo"
+					+ "\n3 - Area" + "\n4 - Local da Construção" + "\n5 - Ano Construção"
+					+ "\n6 - Construtor do Imovel");
 
 			int op = ler.nextInt();
 
@@ -352,9 +382,9 @@ public class Principal3 {
 			}
 
 			if (op == 6) {
-				
+
 				println("\nConstrutor a ser alterado: " + imoveis[indexImo].construtor.nome + "\n");
-				
+
 				println("Lista de Construtores cadastrados:  ---------------------------------------------------------------");
 				for (int indexCons = 0; indexCons < numConstrutores; indexCons++) {
 					println("\nnumero: [" + indexCons + "] " + "\tNome do construtor(a) : "
@@ -376,6 +406,32 @@ public class Principal3 {
 		}
 
 		imoveis[numImoveis] = imo;
+
+		return numImoveis;
+
+	}
+
+	public static int excluirImovel(Imovel imoveis[], int numImoveis, Scanner ler) {
+
+		for (int indexImo = 0; indexImo < numImoveis; indexImo++) {
+			println("\nnumero: [" + indexImo + "] " + "\tNome do Imovel : " + imoveis[indexImo].nome);
+		}
+
+		println("Para excluir um  Imovel digite o seu numero ==> [?] ");
+
+		int indexImo = ler.nextInt();
+
+		if (indexImo < 0 || indexImo >= numImoveis) { // verifica se o user colocou um imovel listado
+			System.out.println("numero invalido, imovel não encontrado tente outro id!");
+			return numImoveis;
+		}
+		for (int i = indexImo; i < numImoveis - 1; i++) {
+			imoveis[i] = imoveis[i + 1];
+		}
+
+//		Imovel imo = imoveis[indexImo];
+//		imoveis[numImoveis] = imo;
+		numImoveis--;
 
 		return numImoveis;
 
