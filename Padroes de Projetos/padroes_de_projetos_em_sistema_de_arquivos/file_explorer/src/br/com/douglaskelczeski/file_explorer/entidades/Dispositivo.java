@@ -5,6 +5,7 @@ public class Dispositivo {
 	private String nome;
 	private double capacidade;
 	private double capacidadeUsada;
+	private FabricanteDispositivoArmazenamento fabricante;
 
 	// metodo construtor
 	public Dispositivo(String nome, double capacidade, double capacidadeUsada) {
@@ -48,6 +49,14 @@ public class Dispositivo {
 
 	public void setCapacidadeUsada(double capacidadeUsada) {
 		this.capacidadeUsada = capacidadeUsada;
+	}
+
+	public FabricanteDispositivoArmazenamento getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(FabricanteDispositivoArmazenamento fabricante) {
+		this.fabricante = fabricante;
 	}
 
 }

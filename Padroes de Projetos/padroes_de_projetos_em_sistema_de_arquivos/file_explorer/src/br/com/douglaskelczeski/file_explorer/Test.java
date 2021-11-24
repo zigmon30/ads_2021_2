@@ -6,6 +6,7 @@ import java.util.Scanner;
 import br.com.douglaskelczeski.file_explorer.entidades.Audio;
 import br.com.douglaskelczeski.file_explorer.entidades.Dispositivo;
 import br.com.douglaskelczeski.file_explorer.entidades.Documento;
+import br.com.douglaskelczeski.file_explorer.entidades.FabricanteDispositivoArmazenamento;
 import br.com.douglaskelczeski.file_explorer.entidades.ImagemLivre;
 import br.com.douglaskelczeski.file_explorer.entidades.ImagemPrivada;
 import br.com.douglaskelczeski.file_explorer.entidades.TamanhoArmazenamento;
@@ -15,19 +16,37 @@ import br.com.douglaskelczeski.file_explorer.entidades.VideoLivre;
 import br.com.douglaskelczeski.file_explorer.entidades.VideoPrivado;
 
 public class Test {
-	
+
 	static boolean imprime = true; // ################################################
 	static ArrayList<TodosOsArquivos> all = new ArrayList<TodosOsArquivos>();
 	static ArrayList<Dispositivo> dispositivos = new ArrayList<Dispositivo>();
+	static ArrayList<FabricanteDispositivoArmazenamento> fabricantes = new ArrayList<FabricanteDispositivoArmazenamento>();
 	static ArrayList<Audio> audios = new ArrayList<Audio>(); // LISTAS DINAMICAS COM ARRAYLIST
 	static ArrayList<Documento> textos = new ArrayList<Documento>();
 	static ArrayList<ImagemLivre> imagens = new ArrayList<ImagemLivre>();
 	static ArrayList<ImagemPrivada> imagensp = new ArrayList<ImagemPrivada>();
 	static ArrayList<VideoLivre> videos = new ArrayList<VideoLivre>();
 	static ArrayList<VideoPrivado> videosp = new ArrayList<VideoPrivado>();
+	
+
 	// ################################################
 
 	public static void main(String[] args) {
+		FabricanteDispositivoArmazenamento fabri = new FabricanteDispositivoArmazenamento();
+		fabri.setNomeDispositivo("Samsung");
+		fabri.setModelo("s001");
+		fabricantes.add(fabri);
+
+		FabricanteDispositivoArmazenamento fabri1 = new FabricanteDispositivoArmazenamento();
+		fabri1.setNomeDispositivo("HP");
+		fabri1.setModelo("S1");
+		fabricantes.add(fabri1);
+		
+		FabricanteDispositivoArmazenamento fabri2 = new FabricanteDispositivoArmazenamento();
+//		fabri2.setNomeDispositivo("HP");
+//		fabri2.setModelo("S1");
+		fabricantes.add(fabri2);
+
 		Scanner ler = new Scanner(System.in);
 		ler.useDelimiter("\r?\n");
 
@@ -56,19 +75,24 @@ public class Test {
 						println("Nome do dispositivo de armazenamento: ");
 						String nome = ler.next();
 
-						println("Qual o codigo da capacidade:\n"
-								+ "(1)  (2)  (3)");
+						for (int indexFab = 0; indexFab < fabricantes.size(); indexFab++) {
+							println("Fabricante[" + indexFab + "]: " + fabricantes.get(indexFab).getNomeDispositivo()
+									+ "\tModelo...=> " + fabricantes.get(indexFab).getModelo());
+						}
+						println("Qual a Marca e modelo insira o indice do dispositivo de armazenamento: ");
+						int indexFab = ler.nextInt();
+						FabricanteDispositivoArmazenamento FabricanteDispositivoArmazenamento = fabricantes.get(indexFab);
+
+						println("Qual o codigo da capacidade:\n" + "(1)  (2)  (3)");
 						int opcaoTipoDis = ler.nextInt();
-						TipoDispositivoCapacidade tipoDispositivo = TipoDispositivoCapacidade.values()[opcaoTipoDis - 1];
-						
+						TipoDispositivoCapacidade tipoDispositivo = TipoDispositivoCapacidade.values()[opcaoTipoDis
+								- 1];
+
 						TamanhoArmazenamento armazenamento = tipoDispositivo.obterCapacidade();
 						double capacidade = armazenamento.escolherTamanho();
-					//	System.out.println();
-						
-						
-						
-						
-						//double capacidade = ler.nextDouble();
+						// System.out.println();
+
+						// double capacidade = ler.nextDouble();
 						println("Capacidade utilizada do dispositivo de armazenamento: ");
 						double capacidadeUsada = ler.nextDouble();
 						Dispositivo dis = new Dispositivo(nome, capacidade, capacidadeUsada);
@@ -83,6 +107,7 @@ public class Test {
 									+ " Capacidade...=> " + dispositivos.get(indexDis).getCapacidade()
 									+ " Memoria usada...=> " + +dispositivos.get(indexDis).getCapacidadeUsada()
 									+ " Capacidade restante...=>" + dispositivos.get(indexDis).getCapacidadeRestante()
+									+ " Fabricante...=>" + fabricantes.get(indexDis).getNomeDispositivo() 
 									+ "\n");
 							println("------------------------------------------------------------------");
 						}
@@ -538,7 +563,7 @@ public class Test {
 					}
 
 					if (opecaoDis == 2) {
-						
+
 					}
 
 				}
