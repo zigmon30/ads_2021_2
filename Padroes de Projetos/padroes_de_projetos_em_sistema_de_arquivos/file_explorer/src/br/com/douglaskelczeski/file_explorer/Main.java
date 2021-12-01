@@ -15,9 +15,25 @@ public class Main {
 	static ArrayList<ImagemPrivada> imagensp = new ArrayList<ImagemPrivada>();
 	static ArrayList<VideoLivre> videos = new ArrayList<VideoLivre>();
 	static ArrayList<VideoPrivado> videosp = new ArrayList<VideoPrivado>();
+	static ArrayList<FabricanteDispositivoArmazenamento> fabricantes = new ArrayList<FabricanteDispositivoArmazenamento>();
+
 	// ################################################
 
 	public static void main(String[] args) {
+		FabricanteDispositivoArmazenamento fabri = new FabricanteDispositivoArmazenamento();
+		fabri.setNomeDispositivo("Samsung");
+		fabri.setModelo("s001");
+		fabricantes.add(fabri);
+
+		FabricanteDispositivoArmazenamento fabri1 = new FabricanteDispositivoArmazenamento();
+		fabri1.setNomeDispositivo("HP");
+		fabri1.setModelo("S1");
+		fabricantes.add(fabri1);
+		
+		FabricanteDispositivoArmazenamento fabri2 = new FabricanteDispositivoArmazenamento();
+		fabri2.setNomeDispositivo("HP");
+		fabri2.setModelo("S1");
+		fabricantes.add(fabri2);
 		Scanner ler = new Scanner(System.in);
 		ler.useDelimiter("\r?\n");
 
@@ -50,7 +66,8 @@ public class Main {
 						double capacidade = ler.nextDouble();
 						println("Capacidade utilizada do dispositivo de armazenamento: ");
 						double capacidadeUsada = ler.nextDouble();
-						Dispositivo dis = new Dispositivo(nome, capacidade, capacidadeUsada);
+						FabricanteDispositivoArmazenamento fabricante = fabri1;
+						Dispositivo dis = new Dispositivo(nome, capacidade, capacidadeUsada, fabricante);
 
 						dispositivos.add(dis);
 
@@ -62,6 +79,8 @@ public class Main {
 									+ " Capacidade...=> " + dispositivos.get(indexDis).getCapacidade()
 									+ " Memoria usada...=> " + +dispositivos.get(indexDis).getCapacidadeUsada()
 									+ " Capacidade restante...=>" + dispositivos.get(indexDis).getCapacidadeRestante()
+									+ " Fabricante...=>" + dispositivos.get(indexDis).getFabricante().getNomeDispositivo()
+									+ " Modelo...=>" + dispositivos.get(indexDis).getFabricante().getModelo()
 									+ "\n");
 							println("------------------------------------------------------------------");
 						}

@@ -8,11 +8,20 @@ public class Dispositivo {
 	private FabricanteDispositivoArmazenamento fabricante;
 
 	// metodo construtor
+	public Dispositivo(String nome, double capacidade, double capacidadeUsada, FabricanteDispositivoArmazenamento fabricante) {
+		super();
+		this.nome = nome;
+		this.capacidade = capacidade;
+		this.capacidadeUsada = capacidadeUsada;
+		this.fabricante = fabricante;
+	}
+	
 	public Dispositivo(String nome, double capacidade, double capacidadeUsada) {
 		super();
 		this.nome = nome;
 		this.capacidade = capacidade;
 		this.capacidadeUsada = capacidadeUsada;
+		
 	}
 
 	public Dispositivo(String nome, double capacidade) {

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import br.com.douglaskelczeski.file_explorer.entidades.Audio;
 import br.com.douglaskelczeski.file_explorer.entidades.Dispositivo;
+import br.com.douglaskelczeski.file_explorer.entidades.DispositivoFactory;
 import br.com.douglaskelczeski.file_explorer.entidades.Documento;
 import br.com.douglaskelczeski.file_explorer.entidades.FabricanteDispositivoArmazenamento;
 import br.com.douglaskelczeski.file_explorer.entidades.ImagemLivre;
@@ -43,9 +44,15 @@ public class Test {
 		fabricantes.add(fabri1);
 		
 		FabricanteDispositivoArmazenamento fabri2 = new FabricanteDispositivoArmazenamento();
-//		fabri2.setNomeDispositivo("HP");
-//		fabri2.setModelo("S1");
+//		fabri2.setNomeDispositivo("Seagate");
+//		fabri2.setModelo("Sega");
 		fabricantes.add(fabri2);
+		
+		Dispositivo dis0 = DispositivoFactory.criarDispositivo("hd1", 55, 20, null);
+
+		dispositivos.add(dis0);
+		
+		
 
 		Scanner ler = new Scanner(System.in);
 		ler.useDelimiter("\r?\n");
@@ -81,7 +88,7 @@ public class Test {
 						}
 						println("Qual a Marca e modelo insira o indice do dispositivo de armazenamento: ");
 						int indexFab = ler.nextInt();
-						FabricanteDispositivoArmazenamento FabricanteDispositivoArmazenamento = fabricantes.get(indexFab);
+						FabricanteDispositivoArmazenamento fab = fabricantes.get(indexFab);
 
 						println("Qual o codigo da capacidade:\n" + "(1)  (2)  (3)");
 						int opcaoTipoDis = ler.nextInt();
@@ -90,13 +97,12 @@ public class Test {
 
 						TamanhoArmazenamento armazenamento = tipoDispositivo.obterCapacidade();
 						double capacidade = armazenamento.escolherTamanho();
-						// System.out.println();
+						System.out.println();
 
 						// double capacidade = ler.nextDouble();
 						println("Capacidade utilizada do dispositivo de armazenamento: ");
 						double capacidadeUsada = ler.nextDouble();
-						Dispositivo dis = new Dispositivo(nome, capacidade, capacidadeUsada);
-
+						Dispositivo dis = DispositivoFactory.criarDispositivo(nome, capacidade, capacidadeUsada, fab);
 						dispositivos.add(dis);
 
 					}
@@ -107,7 +113,8 @@ public class Test {
 									+ " Capacidade...=> " + dispositivos.get(indexDis).getCapacidade()
 									+ " Memoria usada...=> " + +dispositivos.get(indexDis).getCapacidadeUsada()
 									+ " Capacidade restante...=>" + dispositivos.get(indexDis).getCapacidadeRestante()
-									+ " Fabricante...=>" + fabricantes.get(indexDis).getNomeDispositivo() 
+									+ " Fabricante...=>" + dispositivos.get(indexDis).getFabricante().getNomeDispositivo()
+									+ " Modelo...=>" + dispositivos.get(indexDis).getFabricante().getModelo()
 									+ "\n");
 							println("------------------------------------------------------------------");
 						}

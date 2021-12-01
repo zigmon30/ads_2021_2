@@ -10,7 +10,7 @@ public class FabricanteDispositivoArmazenamento {
 	}
 
 	public FabricanteDispositivoArmazenamento(String nomeDispositivo, String modelo) {
-		super();
+		//super();
 		this.nomeDispositivo = nomeDispositivo;
 		this.modelo = modelo;
 	}
