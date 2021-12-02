@@ -34,23 +34,26 @@ public class Test {
 
 	public static void main(String[] args) {
 		FabricanteDispositivoArmazenamento fabri = new FabricanteDispositivoArmazenamento();
-		fabri.setNomeDispositivo("Samsung");
-		fabri.setModelo("s001");
+		fabri.setNomeDispositivo("Toshiba");
+		fabri.setModelo("Canvio Basics HDTB410XK3AA");
 		fabricantes.add(fabri);
 
 		FabricanteDispositivoArmazenamento fabri1 = new FabricanteDispositivoArmazenamento();
-		fabri1.setNomeDispositivo("HP");
-		fabri1.setModelo("S1");
+		fabri1.setNomeDispositivo("Western Digital");
+		fabri1.setModelo("My Passport");
 		fabricantes.add(fabri1);
 		
 		FabricanteDispositivoArmazenamento fabri2 = new FabricanteDispositivoArmazenamento();
-//		fabri2.setNomeDispositivo("Seagate");
-//		fabri2.setModelo("Sega");
+		fabri2.setNomeDispositivo("Seagate");
+		fabri2.setModelo("Barracuda");
 		fabricantes.add(fabri2);
 		
-		Dispositivo dis0 = DispositivoFactory.criarDispositivo("hd1", 55, 20, null);
-
-		dispositivos.add(dis0);
+		
+		Dispositivo dis1 = DispositivoFactory.criarDispositivo("Cliente", 1024, 321, fabri);
+		dispositivos.add(dis1);
+		Dispositivo dis2 = DispositivoFactory.criarDispositivo("Backup cliente", 500, 250, null);
+		dispositivos.add(dis2);
+		
 		
 		
 
@@ -113,8 +116,8 @@ public class Test {
 									+ " Capacidade...=> " + dispositivos.get(indexDis).getCapacidade()
 									+ " Memoria usada...=> " + +dispositivos.get(indexDis).getCapacidadeUsada()
 									+ " Capacidade restante...=>" + dispositivos.get(indexDis).getCapacidadeRestante()
-									+ " Fabricante...=>" + dispositivos.get(indexDis).getFabricante().getNomeDispositivo()
-									+ " Modelo...=>" + dispositivos.get(indexDis).getFabricante().getModelo()
+									+ "\nFabricante...=> " + dispositivos.get(indexDis).getFabricante().getNomeDispositivo()
+									+ " Modelo...=> " + dispositivos.get(indexDis).getFabricante().getModelo()
 									+ "\n");
 							println("------------------------------------------------------------------");
 						}
