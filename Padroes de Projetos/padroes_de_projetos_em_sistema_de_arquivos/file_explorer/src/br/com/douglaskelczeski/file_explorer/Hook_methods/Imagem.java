@@ -1,18 +1,20 @@
-package br.com.douglaskelczeski.file_explorer.entidades;
+package br.com.douglaskelczeski.file_explorer.Hook_methods;
 
-public class Audio {
+public abstract class Imagem {
 	private String nome;
 	private String formato;
 	private double tamanho;
 
-	public Audio(String nome, String formato, double tamanho) {
+	// metodo construtor
+
+	public Imagem(String nome, String formato, double tamanho) {
 		super();
 		this.nome = nome;
 		this.formato = formato;
 		this.tamanho = tamanho;
 	}
 
-	public Audio(String nome, double tamanho) {
+	public Imagem(String nome, double tamanho) {
 		this.nome = nome;
 		this.tamanho = tamanho;
 	}
@@ -21,7 +23,7 @@ public class Audio {
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(String nome) { 
 		this.nome = nome;
 	}
 
@@ -38,13 +40,14 @@ public class Audio {
 	}
 
 	public void setTamanho(double tamanho) {
-		if (tamanho <= 0)
-
-			return;
 		this.tamanho = tamanho;
 	}
 
-	public String getFormatarAudio() {
-		return formato = ".mp3";
+	// comportamento da classe usando o Hook methods
+	public String getFormatarEstensaoImagem() {
+		return typeEstensao();
 	}
+
+	protected abstract String typeEstensao();
+
 }
