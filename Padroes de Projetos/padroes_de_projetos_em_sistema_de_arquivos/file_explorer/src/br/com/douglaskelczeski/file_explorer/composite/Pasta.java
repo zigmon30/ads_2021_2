@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Pasta {
 	
-	private String nomePasta;
-	private ArrayList<Audio> listaMusicas;
+	private String nomePasta;                                                               //atributos da classe pasta
+	private ArrayList<Audio> listaMusicas;                                                  //atributo lista de musicas para compor a pasta
 	
 	public Pasta(String nome) {
 		this.nomePasta = nome;
-		listaMusicas = new ArrayList<Audio>();
+		listaMusicas = new ArrayList<Audio>();                                               //construtor com uma array vazio
 	}
-	
-	public void adicionaMusica(Audio musicaNova) {
+	//metodos da classe
+	public void adicionaMusica(Audio musicaNova) {                                          
 		listaMusicas.add(musicaNova);
 		
 	}
@@ -23,7 +23,7 @@ public class Pasta {
 	}
 	
 	public ArrayList<Audio> getLAudios(){
-		return listaMusicas;
+		return listaMusicas;                                                                  //retorna lista de audios atualizados                                                      
 	}
 
 	public String getNomePasta() {

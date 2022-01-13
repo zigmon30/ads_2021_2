@@ -1,11 +1,11 @@
 package br.com.douglaskelczeski.file_explorer.composite;
 
 public class Audio {
-	private String nome;
+	private String nome;                                                                 //atributos 
 	private String formato;
 	private double tamanho;
 
-	public Audio(String nome, String formato, double tamanho) {
+	public Audio(String nome, String formato, double tamanho) {                         //construtor
 		super();
 		this.nome = nome;
 		this.formato = formato;
