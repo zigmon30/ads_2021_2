@@ -14,13 +14,13 @@ public class VideoProxy implements VideoReprodutor{
 	@Override
 	public void reprodutor() {
 		// TODO Auto-generated method stub
-//		if(nomeVideo == null) {
-//			System.out.println("objeto ainda não instaciado...Criando uma instancia para Video...");
-//			nomeVideo = new Video(nomeArquivo);
-//		} else {
-//			System.out.println("recuperando instacia de video...");
-//		}
-		nomeVideo = new Video(nomeArquivo);
+		if(nomeVideo == null) {
+			System.out.println("objeto ainda não instaciado...Criando uma instancia para Video...");
+			nomeVideo = new Video(nomeArquivo);
+		} else {
+			System.out.println("recuperando instacia de video...");
+		}
+		
 		nomeVideo.reprodutor();
 		
 	}
