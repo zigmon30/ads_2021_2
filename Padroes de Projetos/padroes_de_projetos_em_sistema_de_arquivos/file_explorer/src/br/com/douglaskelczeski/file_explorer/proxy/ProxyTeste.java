@@ -7,10 +7,7 @@ public class ProxyTeste {
 		VideoReprodutor reprodutorVideo = new VideoProxy("Cosmos episodio 1.mkv");
 		
 		reprodutorVideo.reprodutor();
-		System.out.println();
 		
-		reprodutorVideo.reprodutor();
-		System.out.println();
 
 	}
 

@@ -10,9 +10,8 @@ public class Video implements VideoReprodutor {
 
 	public Video(String nome) {
 		this.nome = nome;
-		
-		carregandoArquivo(nome);
-	}
+		carregandoArquivo(nome);                         
+	}                                                 
 	
 	@Override
 	public void reprodutor() {
