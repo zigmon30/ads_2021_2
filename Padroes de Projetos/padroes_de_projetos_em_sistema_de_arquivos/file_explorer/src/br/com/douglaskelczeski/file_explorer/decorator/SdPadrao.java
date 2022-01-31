@@ -17,7 +17,8 @@ public class SdPadrao extends Formatos {
 	@Override
 	public double calculaTamanho(Video video) {
 		System.out.println("Formato Padrão");
-		return  0 + calcula(video);
+		double tamanho = 0;
+		return  tamanho + calcula(video);
 	}
 
 }

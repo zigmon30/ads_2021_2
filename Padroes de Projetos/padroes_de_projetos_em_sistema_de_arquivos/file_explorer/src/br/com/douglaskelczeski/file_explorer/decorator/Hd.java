@@ -18,7 +18,8 @@ public class Hd extends Formatos {
 	@Override
 	public double calculaTamanho(Video video) {
 		System.out.println("Hd");
-		return 100 + (int) calcula(video);
+		double tamanho = 100;
+		return  tamanho + calcula(video);
 	}
 
 }
