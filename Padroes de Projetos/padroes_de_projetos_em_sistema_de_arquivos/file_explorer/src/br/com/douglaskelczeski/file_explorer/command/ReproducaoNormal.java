@@ -4,14 +4,13 @@ public class ReproducaoNormal implements ComandoIF {
 	
 	private VideoReprodutor tocar;
 	
-	public ReproducaoNormal(VideoReprodutor tocar) {
+	public ReproducaoNormal(VideoReprodutor tocar) {        // construtor
 		this.tocar = tocar;
-		// TODO Auto-generated constructor stub
+	  
 	}
 
-	@Override
 	public void reproduzir() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub                      //reproduz velocidade normal
 		this.tocar.normal();
 		
 	}
