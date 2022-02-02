@@ -4,20 +4,28 @@ package br.com.douglaskelczeski.file_explorer.Observer;
 public class ObserverTest {
 
 	
-	public static void main(String[] args){
-		InterfaceNotificacao tela = new InterfaceNotificacao();
+	public static void main(String[] args) {
+		//observador
+		DispositivoAcaoMetodos notificacoes = new DispositivoAcaoMetodos();
 		
-		new AuditoriaObserver(tela);
-		new DadosObserver(tela);
+		//observado
+		
+		DispositivoTerminal terminal1 = new DispositivoTerminal();
 		
 		
-		System.out.println("Primeira notificação aos observadores...");
-		tela.setNotificacao();
+		//adicionar observador ao observado
+		terminal1.addObserver(notificacoes);
 		
-		System.out.println();
-		System.out.println();
+		terminal1.inserido();
+		terminal1.removido();
+		terminal1.formatado();
+		terminal1.corronpido();
 		
-		System.out.println("Segunda notificação aos observadores...");
-		tela.setNotificacao();
+		
+		
 	}
+	
+	
+	
+	
 }
