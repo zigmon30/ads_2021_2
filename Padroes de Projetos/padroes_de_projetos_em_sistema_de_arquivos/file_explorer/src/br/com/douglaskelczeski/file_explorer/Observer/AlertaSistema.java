@@ -3,29 +3,29 @@ package br.com.douglaskelczeski.file_explorer.Observer;
 import java.util.*;
 
 
-public class DispositivoAcaoMetodos implements Observer, Dispositivo{
+public class AlertaSistema implements Observer, Dispositivo{                           //observador
 
 	@Override
 	public void inserido() {
-		System.out.println("Dispositivo inserido no Sistema");
+		System.out.println("Atenção!: Dispositivo inserido no Sistema");
 		
 	}
 
 	@Override
 	public void removido() {
-		System.out.println("Dispositivo removido do Sistema");
+		System.out.println("Atenção!: Dispositivo removido do Sistema");
 		
 	}
 
 	@Override
 	public void formatado() {
-		System.out.println("Dispositivo formatado ");
+		System.out.println("Atenção!: Dispositivo formatado ");
 		
 	}
 
 	@Override
 	public void corronpido() {
-		System.out.println("Dispositivo com dados corrompido");		
+		System.out.println("Atenção!: Dispositivo com dados corrompido");		
 	}
 
 	@Override

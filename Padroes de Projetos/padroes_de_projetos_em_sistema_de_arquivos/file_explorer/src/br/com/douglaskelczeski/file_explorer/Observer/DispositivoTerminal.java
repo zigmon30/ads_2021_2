@@ -4,14 +4,14 @@ import java.util.*;
 
 
 
-public class DispositivoTerminal extends Observable implements Dispositivo{
+public class DispositivoTerminal extends Observable implements Dispositivo{                        //  observado
 	
 	private String comando = "";
 
 	@Override
 	public void inserido() {
 		comando = "inserido";
-		System.out.println("09090Dispositivo inserido no Sistema");
+		System.out.println("Terminal: Dispositivo inserido no Sistema");
 		this.atualizaEstado();
 
 	}
@@ -21,21 +21,21 @@ public class DispositivoTerminal extends Observable implements Dispositivo{
 	@Override
 	public void removido() {
 		comando = "removido";
-		System.out.println("Dispositivo removido do Sistema");
+		System.out.println("\nTerminal: Dispositivo removido do Sistema");
 		this.atualizaEstado();
 	}
 
 	@Override
 	public void formatado() {
 		comando = "formatado";
-		System.out.println("Dispositivo formatado");
+		System.out.println("\nTerminal: Dispositivo formatado");
 		this.atualizaEstado();
 	}
 
 	@Override
 	public void corronpido() {
 		comando = "inserido";
-		System.out.println("Dispositivo corrompido");
+		System.out.println("\nTerminal: Dispositivo corrompido");
 		this.atualizaEstado();
 	}
 

@@ -6,14 +6,12 @@ public class ObserverTest {
 	
 	public static void main(String[] args) {
 		//observador
-		DispositivoAcaoMetodos notificacoes = new DispositivoAcaoMetodos();
+		AlertaSistema notificacoes = new AlertaSistema();
 		
 		//observado
 		
 		DispositivoTerminal terminal1 = new DispositivoTerminal();
-		
-		
-		//adicionar observador ao observado
+	
 		terminal1.addObserver(notificacoes);
 		
 		terminal1.inserido();
@@ -24,8 +22,6 @@ public class ObserverTest {
 		
 		
 	}
-	
-	
 	
 	
 }
